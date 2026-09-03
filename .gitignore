@@ -1,0 +1,9 @@
+# Installer is too large for git (>100MB GitHub limit) — hosted as a GitHub Release
+# asset instead. See js/main.js CONFIG.downloadUrl.
+SorathERP-Setup.exe
+
+# Full-resolution backup kept only for local re-cropping if the icon needs to change.
+assets/app-icon-original.png
+
+# Unused PNG source originals for the photo-banner JPGs — not referenced by any page.
+assets/images/originals/
