@@ -19,7 +19,6 @@ const CONFIG = {
   manualUrl: '',
   // TODO: remote support tool installer
   remoteToolUrl: '',
-  // TODO: placeholder until the real sales/support numbers are live
   phone: '+917405274594',
   whatsapp: '917405274594',
   // Support ticket form posts here (multipart/form-data) — see
