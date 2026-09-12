@@ -20,8 +20,8 @@ const CONFIG = {
   // TODO: remote support tool installer
   remoteToolUrl: '',
   // TODO: placeholder until the real sales/support numbers are live
-  phone: '+911111111111',
-  whatsapp: '911111111111',
+  phone: '+917405274594',
+  whatsapp: '917405274594',
   // Support ticket form posts here (multipart/form-data) — see
   // SorathERP.Licensing/src/SorathERP.LicenseApi/Controllers/SupportController.cs.
   // Empty = the ticket is sent as a pre-filled WhatsApp message instead.
