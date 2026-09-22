@@ -241,7 +241,7 @@ button { font-family: inherit; }
 .doc-row.hoverable:hover { background: #F7F9FC; }
 .num { font-variant-numeric: tabular-nums; }
 .doc-notes { display: flex; gap: 24px; margin-top: 20px; font-size: 13.5px; color: #4C5D7D; flex-wrap: wrap; }
-.doc-notes span::before { content: 'â€”'; color: #F5891F; font-weight: 700; margin-right: 4px; }
+.doc-notes span::before { content: '—'; color: #F5891F; font-weight: 700; margin-right: 4px; }
 
 /* Trial Balance panel */
 .tb-cols { grid-template-columns: 1fr minmax(110px, auto) minmax(110px, auto); gap: 32px; }
@@ -311,7 +311,7 @@ button { font-family: inherit; }
 .module-title { font-size: 20px; font-weight: 700; margin-bottom: 10px; }
 .module-desc { font-size: 14.5px; line-height: 1.6; color: #4C5D7D; margin-bottom: 18px; }
 .module-features { display: flex; flex-direction: column; gap: 9px; font-size: 13.5px; color: #3C4D6E; }
-.module-features span::before { content: 'âœ“ '; }
+.module-features span::before { content: '✓ '; }
 
 /* ===== Onboarding ===== */
 .onboarding-section { padding: 76px 48px; background: #fff; }
@@ -419,12 +419,13 @@ button { font-family: inherit; }
 .detail-title { font-size: 30px; font-weight: 800; letter-spacing: -.02em; margin-bottom: 16px; }
 .detail-desc { font-size: 16px; line-height: 1.65; color: #4C5D7D; margin-bottom: 22px; }
 .detail-features { display: flex; flex-direction: column; gap: 11px; font-size: 14.5px; color: #3C4D6E; }
-.detail-features span::before { content: 'âœ“ '; }
+.detail-features span::before { content: '✓ '; }
 .detail-doc { animation: docIn .5s ease both; }
 
 /* ===== Pricing plan cards ===== */
 .plans-section { padding: 24px 48px 24px; background: #fff; }
-.plans-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; max-width: 1240px; margin: 0 auto; align-items: stretch; }
+.plans-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; max-width: 1180px; margin: 0 auto; align-items: stretch; }
+@media (max-width: 1300px) { .plans-grid { grid-template-columns: repeat(2, 1fr); max-width: 760px; } }
 .plan-card { border: 1px solid #E5E9F1; border-radius: 16px; padding: 30px 26px; background: #fff; display: flex; flex-direction: column; position: relative; }
 .plan-card.featured { border: 2px solid #F5891F; background: #FFF9F1; box-shadow: 0 16px 40px rgba(245,137,31,.16); }
 .plan-card.dark { background: #16294E; color: #fff; border-color: #16294E; }
@@ -447,7 +448,7 @@ button { font-family: inherit; }
 .plan-cta.white:hover { background: #F1F4FA; }
 .plan-features { display: flex; flex-direction: column; gap: 11px; font-size: 13.5px; color: #3C4D6E; flex: 1; }
 .plan-card.dark .plan-features { color: #D7DEEC; }
-.plan-features span::before { content: 'âœ“ '; }
+.plan-features span::before { content: '✓ '; }
 
 /* ===== Comparison table ===== */
 .compare-section { padding: 56px 48px 88px; background: #F7F9FC; }
@@ -541,10 +542,6 @@ textarea { resize: vertical; }
 .legal-p { font-size: 15.5px; line-height: 1.75; color: #3C4D6E; margin-bottom: 14px; }
 .legal-disclaimer { margin-top: 44px; padding: 18px 20px; background: #F7F9FC; border-radius: 10px; font-size: 13px; color: #7A8AA6; line-height: 1.6; }
 .footer-simple { background: #0F1D3A; color: #8FA0BF; padding: 32px 48px; display: flex; justify-content: space-between; font-size: 12.5px; flex-wrap: wrap; gap: 10px; }
-
-@media (max-width: 1300px) {
-  .plans-grid { grid-template-columns: 1fr 1fr; }
-}
 
 /* ===== Photo banners (full-width section images) ===== */
 .photo-banner-section { padding: 8px 48px 64px; }
@@ -956,7 +953,7 @@ textarea { resize: vertical; }
 }
 .faq-item summary::-webkit-details-marker { display: none; }
 .faq-item summary::after { content: '+'; font-size: 22px; font-weight: 700; color: #F5891F; line-height: 1; }
-.faq-item[open] summary::after { content: 'â€“'; }
+.faq-item[open] summary::after { content: '–'; }
 .faq-item summary:hover { color: #E07B12; }
 .faq-answer { padding: 0 24px 22px; font-size: 15px; line-height: 1.7; color: #4C5D7D; }
 
