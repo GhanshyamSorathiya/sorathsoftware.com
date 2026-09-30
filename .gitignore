@@ -7,3 +7,6 @@ assets/app-icon-original.png
 
 # Unused PNG source originals for the photo-banner JPGs — not referenced by any page.
 assets/images/originals/
+
+# Visual Studio local cache — machine-specific, not project content.
+.vs/
