@@ -11,6 +11,11 @@ const CONFIG = {
   // Release asset instead of a repo file. Update the tag below whenever a new
   // installer build is uploaded as a release.
   downloadUrl: 'https://github.com/GhanshyamSorathiya/sorathsoftware.com/releases/download/v1.0.0/SorathERP-Setup.exe',
+  // EmbroBooks installer (EmbroBooks-Setup.exe), hosted the same way as the SorathERP
+  // one above: a GitHub Release asset, on the same v1.0.0 release. UPLOAD THE FILE
+  // BEFORE PUSHING THIS CHANGE, or the EmbroBooks download buttons point at a missing
+  // file. Empty = the buttons open a pre-filled WhatsApp message asking for the link.
+  embroDownloadUrl: 'https://github.com/GhanshyamSorathiya/sorathsoftware.com/releases/download/v1.0.0/EmbroBooks-Setup.exe',
   // TODO: product tour video (YouTube link is fine). Empty = scroll to the
   // "See it at work" section on the homepage instead.
   tourUrl: '',
@@ -83,6 +88,14 @@ const CONFIG = {
     },
 
     demo: () => open(wa("Hi, I'd like to book a free demo of SorathERP.")),
+
+    // EmbroBooks (embroidery edition) page — embrobooks.html
+    'download-embrobooks': () =>
+      CONFIG.embroDownloadUrl
+        ? (window.location.href = CONFIG.embroDownloadUrl)
+        : open(wa("Hi, I'd like the EmbroBooks free trial download link.")),
+
+    'demo-embrobooks': () => open(wa("Hi, I'd like to book a free demo of EmbroBooks.")),
 
     'training-videos': () =>
       CONFIG.trainingUrl

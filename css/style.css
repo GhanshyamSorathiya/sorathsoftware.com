@@ -967,3 +967,45 @@ textarea { resize: vertical; }
   .faq-item summary { padding: 16px 18px; font-size: 15px; }
   .faq-answer { padding: 0 18px 18px; }
 }
+
+/* =====================================================================
+   EmbroBooks (embroidery edition) - embrobooks.html, plus the 4-card
+   pricing grid and the small cross-links on other pages.
+   ===================================================================== */
+.eb-brand { display: flex; align-items: center; justify-content: center; gap: 16px; margin: 0 auto 22px; animation: fadeUp .6s ease both; }
+.eb-brand img { height: 72px; width: auto; display: block; }
+.eb-brand-name { font-size: 44px; font-weight: 800; letter-spacing: -.02em; line-height: 1; color: #16294E; }
+.eb-brand-name span { color: #F5891F; }
+.eb-edition-line { font-size: 14.5px; font-weight: 600; color: #3C4D6E; margin: 18px auto 0; max-width: 640px; }
+.eb-hero-ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 30px; }
+.eb-hero-trust { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; font-size: 13px; color: #7A8AA6; margin-top: 22px; }
+
+.modules-section.white { background: #fff; }
+.module-card.static { cursor: default; }
+
+.eb-pricing { padding: 72px 48px; background: #fff; }
+.eb-price-wrap { max-width: 460px; margin: 0 auto; }
+.eb-price-note { font-size: 12.5px; color: #8FA0BF; margin: -14px 0 22px; }
+.eb-price-links { text-align: center; font-size: 14px; color: #4C5D7D; line-height: 1.7; max-width: 620px; margin: 26px auto 0; }
+.eb-price-links a { font-weight: 700; }
+
+.detail-link { display: inline-block; margin-top: 20px; font-size: 14.5px; font-weight: 700; }
+
+/* Pricing page: four plan cards in one row on wide screens. */
+.plans-grid.four { grid-template-columns: repeat(4, 1fr); max-width: 1240px; gap: 18px; }
+.plans-grid.four .plan-card { padding: 28px 22px; }
+@media (max-width: 1300px) { .plans-grid.four { grid-template-columns: repeat(2, 1fr); max-width: 760px; gap: 22px; } }
+
+/* Five nav links: tighten the gap just above the hamburger breakpoint. */
+@media (min-width: 1101px) and (max-width: 1240px) { .nav-links { gap: 22px; } }
+
+@media (max-width: 860px) {
+  .eb-pricing { padding: 48px 20px; }
+  .eb-brand { gap: 12px; margin-bottom: 18px; }
+  .eb-brand img { height: 52px; }
+  .eb-brand-name { font-size: 32px; }
+  .eb-hero-ctas { flex-direction: column; align-items: stretch; }
+  .eb-hero-ctas button { width: 100%; }
+  .eb-hero-trust { gap: 10px 18px; }
+  .plans-grid.four { grid-template-columns: 1fr; }
+}
