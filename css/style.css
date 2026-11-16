@@ -94,7 +94,7 @@ button { font-family: inherit; }
 /* ===== Hero ===== */
 .hero {
   display: grid;
-  grid-template-columns: 1.05fr .95fr;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
   gap: 56px;
   padding: 72px 48px 64px;
   background: linear-gradient(180deg, #F7F9FC 0%, #FFFFFF 100%);
@@ -124,22 +124,22 @@ button { font-family: inherit; }
 .btn-tour:hover { border-color: #16294E; }
 .hero-trust-list { display: flex; gap: 24px; font-size: 13px; color: #7A8AA6; flex-wrap: wrap; }
 
-.hero-mockup { animation: floatY 6s ease-in-out infinite; }
+.hero-mockup { animation: floatY 6s ease-in-out infinite; min-width: 0; }
 .mockup-window {
   background: #fff; border: 1px solid #E1E7F0; border-radius: 14px;
   box-shadow: 0 24px 60px rgba(22,41,78,.14); overflow: hidden;
 }
 .mockup-titlebar { display: flex; gap: 6px; padding: 10px 14px; border-bottom: 1px solid #EDF1F7; background: #F7F9FC; }
 .mockup-dot { width: 10px; height: 10px; border-radius: 50%; background: #E4E9F2; }
-.mockup-body { display: grid; grid-template-columns: 150px 1fr; }
+.mockup-body { display: grid; grid-template-columns: 150px minmax(0, 1fr); }
 .mockup-sidebar { background: #16294E; padding: 16px 0; display: flex; flex-direction: column; gap: 4px; }
 .mockup-sidebar-item { color: #8FA0BF; font-size: 11.5px; padding: 8px 16px; }
 .mockup-sidebar-item.active { color: #fff; font-weight: 600; background: rgba(255,255,255,.12); border-left: 3px solid #F5891F; }
 .mockup-content { padding: 18px; background: #FBFCFE; }
 .mockup-stats { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 14px; }
-.mockup-stat-card { background: #fff; border: 1px solid #E9EDF4; border-radius: 9px; padding: 12px; }
+.mockup-stat-card { background: #fff; border: 1px solid #E9EDF4; border-radius: 9px; padding: 12px; min-width: 0; }
 .mockup-stat-label { font-size: 10px; color: #8FA0BF; }
-.mockup-stat-value { font-size: 17px; font-weight: 800; color: #16294E; }
+.mockup-stat-value { font-size: 17px; font-weight: 800; color: #16294E; white-space: nowrap; }
 .mockup-stat-sub { font-size: 10px; font-weight: 600; }
 .mockup-stat-sub.up { color: #1C9E5A; }
 .mockup-stat-sub.warn { color: #F5891F; }
@@ -147,7 +147,7 @@ button { font-family: inherit; }
 .mockup-chart-card { background: #fff; border: 1px solid #E9EDF4; border-radius: 9px; padding: 14px; }
 .mockup-chart-title { font-size: 11px; font-weight: 700; color: #16294E; margin-bottom: 10px; }
 .chart-bars { display: flex; align-items: flex-end; gap: 8px; height: 92px; }
-.chart-bar-group { flex: 1; display: flex; gap: 3px; align-items: flex-end; }
+.chart-bar-group { flex: 1; height: 100%; display: flex; gap: 3px; align-items: flex-end; }
 .chart-bar { flex: 1; border-radius: 3px 3px 0 0; transform-origin: bottom; animation: barGrow 1s ease both; }
 .chart-bar.navy { background: #16294E; }
 .chart-bar.light { background: #F5B96B; }
@@ -758,6 +758,26 @@ textarea { resize: vertical; }
   .sync-cloud-disc img { width: 36px; height: 36px; }
 }
 
+/* Right at the 1101px hamburger breakpoint the full menu is a few px too wide and wraps. */
+.nav-links a, .btn-signin, .btn-download { white-space: nowrap; }
+@media (min-width: 1101px) and (max-width: 1130px) { .nav .nav-links { gap: 18px; } }
+
+/* Hero app-screen mockup: its window is narrower than its natural width from ~1340px
+   down to the mobile stack, so scale the contents down instead of clipping them. */
+@media (min-width: 861px) and (max-width: 1340px) {
+  .mockup-body { grid-template-columns: 112px minmax(0, 1fr); }
+  .mockup-sidebar-item { padding: 8px 12px; font-size: 11px; }
+  .mockup-content { padding: 12px; }
+  .mockup-stats { gap: 8px; }
+  .mockup-stat-card { padding: 9px; }
+  .mockup-stat-value { font-size: 13.5px; }
+}
+@media (min-width: 861px) and (max-width: 1060px) {
+  .mockup-stats { grid-template-columns: 1fr 1fr; }
+  .mockup-stat-card:nth-child(3) { display: none; }
+  .mockup-stat-value { font-size: 12.5px; }
+}
+
 /* =====================================================================
    MOBILE / SMALL-TABLET RESPONSIVE OVERRIDES
    ===================================================================== */
@@ -811,6 +831,15 @@ textarea { resize: vertical; }
   .top-bar-right a, .top-bar-cta { padding: 11px 8px; }
   .footer-col a, .footer-legal a { padding: 13px 0; }
   .contact-card-value a, .sales-note a { display: inline-block; padding: 12px 0; }
+  .training-link, .detail-link { display: inline-block; padding: 12px 0; }
+
+  /* Plan comparison table: it scrolls sideways inside its card on a phone, so keep the
+     feature labels pinned while swiping and hint that there is more to the right. */
+  .compare-section::before { content: "Swipe sideways to compare all plans \2192"; display: block; text-align: center; font-size: 12px; color: #7A8AA6; margin-bottom: 10px; }
+  .compare-table-wrap td { padding: 12px 12px; font-size: 13px; }
+  .compare-table-wrap tr.head td { padding: 14px 12px; }
+  .compare-table-wrap td:first-child { position: sticky; left: 0; z-index: 1; background: #fff; min-width: 138px; max-width: 150px; box-shadow: 1px 0 0 #EDF1F7; }
+  .compare-table-wrap tr.head td:first-child { background: #F7F9FC; }
 
   /* ----- Hero ----- */
   .hero { grid-template-columns: minmax(0, 1fr); gap: 32px; text-align: center; }
