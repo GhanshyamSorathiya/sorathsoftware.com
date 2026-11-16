@@ -804,10 +804,11 @@ textarea { resize: vertical; }
   .legal-nav-simple .nav-menu > .btn-signin { margin-top: 14px; text-align: center; }
 
   /* ----- Top bar ----- */
-  .top-bar { flex-direction: column; gap: 8px; text-align: center; font-size: 12px; padding-top: 10px; padding-bottom: 10px; }
-  .top-bar-right { flex-direction: column; gap: 8px; align-items: center; }
-  /* Touch targets: thumbs need ~44px, and these are all 13â€“16px tall on a phone. */
-  .top-bar-right a, .top-bar-cta { padding: 14px 18px; }
+  .top-bar { flex-direction: column; gap: 2px; text-align: center; font-size: 12px; line-height: 1.4; padding-top: 8px; padding-bottom: 4px; }
+  /* Phone and CTA share one row instead of stacking, so the bar stays short on a phone. */
+  .top-bar-right { flex-direction: row; flex-wrap: wrap; gap: 4px 12px; align-items: center; justify-content: center; }
+  /* Touch targets: ~40px tall hit area without the bar ballooning. */
+  .top-bar-right a, .top-bar-cta { padding: 11px 8px; }
   .footer-col a, .footer-legal a { padding: 13px 0; }
   .contact-card-value a, .sales-note a { display: inline-block; padding: 12px 0; }
 
